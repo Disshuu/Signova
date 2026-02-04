@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signova - Gesture Recognition</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header class="fade-in-top">
+    <h1 class="title-animated">Signova</h1>
+    <p class="subtitle">Two-Way Communication System</p>
+  </header>
+
+  <main>
+    <div class="grid-container">
+
+      <!-- Left Panel: Upload + Webcam -->
+      <div class="card upload-card slide-in-left">
+        <h2>Upload Image</h2>
+        <label for="imageUpload" class="upload-label">
+          📂 Choose File
+          <input type="file" id="imageUpload" accept="image/*" hidden />
+        </label>
+
+        <h2 style="margin-top:1.5rem;">Use Webcam</h2>
+        <video id="video" autoplay muted playsinline></video>
+        <div class="button-group">
+          <button id="captureBtn">📸 Capture</button>
+          <button id="predictBtn">▶ Predict</button>
+          <button id="autoCaptureBtn">🤖 Auto</button>
+        </div>
+        <p id="instructionText">Awaiting gesture or upload...</p>
+        <img id="framePreview" alt="Frame Preview">
+      </div>
+
+      <!-- Right Panel: Prediction -->
+      <div class="card result-card slide-in-right">
+        <h2>Prediction</h2>
+        <h3 id="gestureText" class="prediction-text">—</h3>
+
+        <!-- Text to GIF Input -->
+        <div style="margin:1rem 0; display:flex; align-items:center;">
+          <input type="text" id="textToGifInput" placeholder="Type text here"
+                 style="padding:0.6rem 1rem; border-radius:0.8rem; border:none; flex:1; font-size:1rem; margin-right:0.5rem;" />
+          <button id="textToGifBtn" class="upload-label">➡ Show GIF</button>
+        </div>
+
+        <img id="gestureGif" src="" alt="Gesture GIF" class="gif-preview" />
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="fade-in-bottom">
+    <p>© 2025 Signova</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
+</body>
+</html>
